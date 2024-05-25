@@ -13,8 +13,8 @@ const Sidebar = () => {
           <NavLink
             className={({ isActive }) =>
               ` ${
-                isActive && " bg-white text-black"
-              } block py-2 px-3 border-l-[5px] border-white rounded-r-[15px] font-semibold text-[8px] sm:text-[12px] md:text-[15px] lg:text-[24px] text-white mb-5`
+                isActive ? " bg-white text-black" : "text-white"
+              } block py-2 px-3 border-l-[5px] border-white rounded-r-[15px] font-semibold text-[8px] sm:text-[12px] md:text-[15px] lg:text-[24px] mb-5`
             }
             to={"/"}
           >
@@ -25,8 +25,8 @@ const Sidebar = () => {
           <NavLink
             className={({ isActive }) =>
               ` ${
-                isActive && " bg-white text-black"
-              } block py-2 px-3 border-l-[5px] border-white rounded-r-[15px] font-semibold text-[8px] sm:text-[12px] md:text-[15px] lg:text-[24px] text-white mb-5`
+                isActive ? " bg-white text-black" : "text-white"
+              } block py-2 px-3 border-l-[5px] border-white rounded-r-[15px] font-semibold text-[8px] sm:text-[12px] md:text-[15px] lg:text-[24px]  mb-5`
             }
             to={"/add"}
           >
@@ -37,8 +37,8 @@ const Sidebar = () => {
           <NavLink
             className={({ isActive }) =>
               ` ${
-                isActive && " bg-white text-black"
-              } block py-2 px-3 border-l-[5px] border-white rounded-r-[15px] font-semibold text-[8px] sm:text-[12px] md:text-[15px] lg:text-[24px] text-white mb-5`
+                isActive ? " bg-white text-black" : "text-white"
+              } block py-2 px-3 border-l-[5px] border-white rounded-r-[15px] font-semibold text-[8px] sm:text-[12px] md:text-[15px] lg:text-[24px] mb-5`
             }
             to={"/search"}
           >

@@ -1,6 +1,7 @@
 import React from "react";
-import Flex from "../common/Flex";
-import Sidebar from "../screens/Sidebar/Sidebar";
+import Flex from "../components/common/Flex";
+import Sidebar from "../components/screens/Sidebar/Sidebar";
+import Header from "../components/common/Header";
 import { Outlet } from "react-router-dom";
 
 const Rootlayout = () => {
@@ -10,6 +11,7 @@ const Rootlayout = () => {
         <Sidebar />
       </div>
       <div className="w-10/12">
+        <Header />
         <Outlet />
       </div>
     </Flex>

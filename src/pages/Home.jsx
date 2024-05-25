@@ -1,10 +1,13 @@
 import React from "react";
+import StudentListView from "../components/common/StudentListView";
+import { useSelector } from "react-redux";
 
 const Home = () => {
+  let data = useSelector((state) => state.allStudents.students);
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <main className="px-2">
+      <StudentListView students={data} />
+    </main>
   );
 };
 

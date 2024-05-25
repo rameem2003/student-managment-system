@@ -5,9 +5,10 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import Rootlayout from "./components/layout/Rootlayout";
+
 import Home from "./pages/Home";
 import AddStudent from "./pages/AddStudent";
+import Rootlayout from "./layout/Rootlayout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
