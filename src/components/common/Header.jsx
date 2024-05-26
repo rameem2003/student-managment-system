@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { studentReducer } from "../../redux/features/allstudents";
 
 const Header = () => {
-  const disatch = useDispatch();
-  const data = useSelector((state) => state.allStudents.students);
+  const disatch = useDispatch(); // sent all students fata to main redux
+  const data = useSelector((state) => state.allStudents.students); // get all students
   /**
    * Store all students info into the main redux store
    * for global

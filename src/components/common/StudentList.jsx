@@ -1,6 +1,9 @@
 import React from "react";
 import Flex from "./Flex";
 import Image from "./Image";
+import { GrView } from "react-icons/gr";
+import { MdModeEditOutline } from "react-icons/md";
+import { PiTrashSimpleFill } from "react-icons/pi";
 /**
  * This Component for displaing student info in list view
  */
@@ -29,6 +32,12 @@ const StudentList = ({ studentInfo }) => {
             Diploma Board Roll: {studentInfo.diplomaBoardRoll}
           </p>
         </div>
+      </Flex>
+
+      <Flex className={"items-center justify-end gap-5"}>
+        <GrView className=" text-2xl text-black cursor-pointer group-hover:text-white" />
+        <MdModeEditOutline className=" text-2xl text-black cursor-pointer group-hover:text-white" />
+        <PiTrashSimpleFill className=" text-2xl text-black cursor-pointer group-hover:text-white" />
       </Flex>
     </Flex>
   );
