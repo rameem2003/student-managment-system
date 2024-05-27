@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { MdOutlineWindow } from "react-icons/md";
 import { FaSearch, FaThList } from "react-icons/fa";
 import Loading from "../components/common/Loading";
+import BasicInfo from "../components/screens/Home/BasicInfo";
 
 const Home = () => {
   let data = useSelector((state) => state.allStudents.students); // get all students
@@ -33,29 +34,8 @@ const Home = () => {
   };
 
   return (
-    <main className="px-2">
-      <Flex className={" flex items-center my-5 gap-5"}>
-        <Flex className="w-2/12 h-[200px] items-center justify-center flex-col gap-3 rounded-lg bg-primaryBG">
-          <h3 className=" font-sans font-semibold text-6xl text-white">
-            {data.length < 10 ? `0${data.length}` : data.length}
-          </h3>
-
-          <p className=" font-sans font-normal text-2xl text-white">
-            Total Students
-          </p>
-        </Flex>
-
-        <Flex className="w-2/12 h-[200px] items-center justify-center flex-col gap-3 rounded-lg bg-primaryBG">
-          <h3 className=" font-sans font-semibold text-6xl text-white">
-            {data.length < 10 ? `0${data.length}` : data.length}
-          </h3>
-
-          <p className=" font-sans font-normal text-2xl text-white">
-            Male Students
-          </p>
-        </Flex>
-      </Flex>
-
+    <main>
+      <BasicInfo data={data} />
       <Flex className={"items-center justify-between my-5"}>
         <Flex className={"gap-5"}>
           <div className="w-[40px] h-[40px] bg-white flex items-center justify-center cursor-pointer">

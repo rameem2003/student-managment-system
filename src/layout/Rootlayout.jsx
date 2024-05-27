@@ -12,7 +12,9 @@ const Rootlayout = () => {
       </div>
       <div className="w-10/12">
         <Header />
-        <Outlet />
+        <section className=" mt-3 px-2">
+          <Outlet />
+        </section>
       </div>
     </Flex>
   );
