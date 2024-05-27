@@ -62,21 +62,23 @@ const Home = () => {
         </Flex>
       </Flex>
 
-      {data.length == 0 ? (
-        <Loading />
-      ) : (
-        <>
-          {search.length == 0 ? (
-            <h1 className=" font-sans font-semibold text-2xl text-red-500 text-center">
-              Student Not Found
-            </h1>
-          ) : (
-            <div>
-              <StudentListView students={search} />
-            </div>
-          )}
-        </>
-      )}
+      <div className=" overflow-y-scroll h-[500px]">
+        {data.length == 0 ? (
+          <Loading />
+        ) : (
+          <>
+            {search.length == 0 ? (
+              <h1 className=" font-sans font-semibold text-2xl text-red-500 text-center">
+                Student Not Found
+              </h1>
+            ) : (
+              <div>
+                <StudentListView students={search} />
+              </div>
+            )}
+          </>
+        )}
+      </div>
     </main>
   );
 };

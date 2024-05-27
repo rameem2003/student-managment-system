@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import Input from "../components/common/Input";
 import Flex from "../components/common/Flex";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddStudent = () => {
+  const navigate = useNavigate("");
   const [nameB, setNameB] = useState("");
   const [nameE, setNameE] = useState("");
   const [img, setImg] = useState("");
@@ -46,15 +50,41 @@ const AddStudent = () => {
             "Content-Type": "application/json",
           },
         })
-        .then((res) => console.log(res));
+        .then((res) => console.log(res))
+        .finally(() => {
+          toast.success("Student Added Successful", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);
+        });
     } catch (error) {
       console.log(error);
+      toast.error("Something Went Wrong", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
     }
 
     // console.log(newStudent);
   };
   return (
     <section>
+      <ToastContainer />
       <h1 className=" font-sans font-bold text-4xl text-black">
         Add New Student
       </h1>
@@ -152,7 +182,7 @@ const AddStudent = () => {
             onChange={(e) => setSSCGroup(e.target.value)}
             className={"w-1/2"}
             htmlFor={"group"}
-            label={"SSC Group"}
+            label={"SSC Group (Bangla)"}
           />
           <Input
             onChange={(e) => setSSCGPA(e.target.value)}
