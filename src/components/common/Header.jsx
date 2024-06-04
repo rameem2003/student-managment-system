@@ -26,17 +26,17 @@ const Header = () => {
   return (
     <header className=" bg-primaryBG p-3">
       <Flex className=" items-center justify-between">
-        <h1 className=" font-sans font-semibold text-2xl text-white">
+        <h1 className=" font-sans font-semibold text-[12px] sm:text-[16px] md:text-lg lg:text-xl 2xl:text-2xl text-white">
           ISTT Diploma Batch 2019 - 20 Student Info
         </h1>
 
         <Flex className={" items-center gap-5"}>
-          <h2 className=" font-sans font-semibold text-2xl text-white">
+          <h2 className=" font-sans font-semibold text-[12px] sm:text-[16px] md:text-lg lg:text-xl 2xl:text-2xl text-white">
             Total Students :{" "}
             {data.length < 10 ? `0${data.length}` : data.length}
           </h2>
 
-          <FaUserCircle className=" text-2xl text-white cursor-pointer" />
+          <FaUserCircle className="text-[12px] sm:text-[16px] md:text-lg lg:text-xl 2xl:text-2xl text-white cursor-pointer" />
         </Flex>
       </Flex>
     </header>

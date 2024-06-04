@@ -7,10 +7,10 @@ import { Outlet } from "react-router-dom";
 const Rootlayout = () => {
   return (
     <Flex className={" w-full h-screen bg-gray-300"}>
-      <div className="w-2/12">
+      <div className="w-3/12 lg:w-2/12">
         <Sidebar />
       </div>
-      <div className="w-10/12">
+      <div className="w-9/12 lg:w-10/12">
         <Header />
         <section className=" mt-3 px-2">
           <Outlet />

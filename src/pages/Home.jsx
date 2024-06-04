@@ -62,7 +62,7 @@ const Home = () => {
         </Flex>
       </Flex>
 
-      <div className=" overflow-y-scroll h-[500px]">
+      <div className="">
         {data.length == 0 ? (
           <Loading />
         ) : (
@@ -73,7 +73,7 @@ const Home = () => {
               </h1>
             ) : (
               <div>
-                <StudentListView students={search} />
+                <StudentListView students={search} itemsPerPage={4} />
               </div>
             )}
           </>

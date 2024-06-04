@@ -14,7 +14,7 @@ const Sidebar = () => {
             className={({ isActive }) =>
               ` ${
                 isActive ? " bg-white text-black" : "text-white"
-              } block py-2 px-3 border-l-[5px] border-white rounded-r-[15px] font-semibold text-[8px] sm:text-[12px] md:text-[15px] lg:text-[24px] mb-5`
+              } block py-2 px-3 border-l-[5px] border-white rounded-r-[15px] font-semibold text-[8px] sm:text-base md:text-[18px] lg:text-lg 2xl:text-2xl mb-5`
             }
             to={"/"}
           >
@@ -26,11 +26,11 @@ const Sidebar = () => {
             className={({ isActive }) =>
               ` ${
                 isActive ? " bg-white text-black" : "text-white"
-              } block py-2 px-3 border-l-[5px] border-white rounded-r-[15px] font-semibold text-[8px] sm:text-[12px] md:text-[15px] lg:text-[24px]  mb-5`
+              } block py-2 px-3 border-l-[5px] border-white rounded-r-[15px] font-semibold   text-[8px] sm:text-base md:text-[18px] lg:text-lg 2xl:text-2xl mb-5`
             }
             to={"/add"}
           >
-            Add New Students
+            Add New
           </NavLink>
         </li>
         <li>
@@ -38,7 +38,7 @@ const Sidebar = () => {
             className={({ isActive }) =>
               ` ${
                 isActive ? " bg-white text-black" : "text-white"
-              } block py-2 px-3 border-l-[5px] border-white rounded-r-[15px] font-semibold text-[8px] sm:text-[12px] md:text-[15px] lg:text-[24px] mb-5`
+              } block py-2 px-3 border-l-[5px] border-white rounded-r-[15px] font-semibold  text-[8px] sm:text-base md:text-[18px] lg:text-lg 2xl:text-2xl mb-5`
             }
             to={"/search"}
           >

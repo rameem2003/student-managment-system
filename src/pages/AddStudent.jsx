@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Input from "../components/common/Input";
 import Flex from "../components/common/Flex";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { genderData } from "../constant/genderdata";
 
 const AddStudent = () => {
   const navigate = useNavigate("");
+  const genderRef = useRef();
+  const [genderDropDown, setGenderDropDown] = useState(false);
   const [nameB, setNameB] = useState("");
   const [nameE, setNameE] = useState("");
+  const [gender, setGender] = useState("");
   const [img, setImg] = useState("");
   const [dob, setDOB] = useState("");
   const [blood, setBlood] = useState("");
@@ -29,6 +33,7 @@ const AddStudent = () => {
       studentNameBangla: nameB,
       studentNameEnglish: nameE,
       status: true,
+      gender: gender,
       department: department,
       diplomaBoardRoll: boardRoll,
       diplomaBoardReg: boardReg,
@@ -50,8 +55,8 @@ const AddStudent = () => {
             "Content-Type": "application/json",
           },
         })
-        .then((res) => console.log(res))
-        .finally(() => {
+        .then((res) => {
+          console.log(res);
           toast.success("Student Added Successful", {
             position: "top-right",
             autoClose: 5000,
@@ -62,6 +67,8 @@ const AddStudent = () => {
             progress: undefined,
             theme: "colored",
           });
+        })
+        .finally(() => {
           setTimeout(() => {
             navigate("/");
           }, 2000);
@@ -80,8 +87,16 @@ const AddStudent = () => {
       });
     }
 
-    // console.log(newStudent);
+    console.log(newStudent);
   };
+
+  useEffect(() => {
+    document.addEventListener("click", (e) => {
+      genderRef.current.contains(e.target)
+        ? setGenderDropDown(true)
+        : setGenderDropDown(false);
+    });
+  }, []);
   return (
     <section>
       <ToastContainer />
@@ -114,19 +129,44 @@ const AddStudent = () => {
         <Flex className={"gap-3 mb-4"}>
           <Input
             onChange={(e) => setImg(e.target.value)}
-            className={"w-1/3"}
+            className={"w-1/4"}
             htmlFor={"img"}
             label={"Photo Link"}
           />
+          <div ref={genderRef} className="w-1/4 relative">
+            <Input
+              value={gender}
+              // onChange={(e) => setGender(e.target.value)}
+
+              className={"w-full"}
+              htmlFor={"gender"}
+              label={"Gender"}
+            />
+
+            {genderDropDown && (
+              <div className="bg-white w-full z-50  top-[80px] left-0 rounded-lg absolute">
+                {genderData.map((data) => (
+                  <p
+                    onClick={() => {
+                      setGender(data);
+                    }}
+                    className=" capitalize cursor-pointer py-2 px-3 rounded-md font-sans font-semibold text-lg mb-3 hover:bg-primaryBG hover:text-white"
+                  >
+                    {data}
+                  </p>
+                ))}
+              </div>
+            )}
+          </div>
           <Input
             onChange={(e) => setFatherName(e.target.value)}
-            className={"w-1/3"}
+            className={"w-1/4"}
             htmlFor={"father_Name"}
             label={"Father's Name (Bangla)"}
           />
           <Input
             onChange={(e) => setMotherName(e.target.value)}
-            className={"w-1/3"}
+            className={"w-1/4"}
             htmlFor={"mother_name"}
             label={"Mother Name (Bangla)"}
           />

@@ -1,10 +1,19 @@
 import React from "react";
 
-const Input = ({ htmlFor, label, onChange, className }) => {
+const Input = ({
+  htmlFor,
+  label,
+  onChange,
+  className,
+  value,
+  defaultValue,
+}) => {
   return (
     <div className={` relative mt-5 ${className}`}>
       <div className="relative">
         <input
+          value={value}
+          defaultValue={defaultValue}
           type="text"
           id={htmlFor}
           onChange={(e) => onChange(e)}
