@@ -73,7 +73,7 @@ const Home = () => {
               </h1>
             ) : (
               <div>
-                <StudentListView students={search} itemsPerPage={4} />
+                <StudentListView students={search} itemsPerPage={5} />
               </div>
             )}
           </>

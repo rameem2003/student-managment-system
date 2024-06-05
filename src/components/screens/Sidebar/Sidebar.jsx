@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <section className=" p-3 h-screen overflow-y-scroll bg-primaryBG">
+    <section className=" p-3 h-full overflow-y-scroll bg-primaryBG no-scrollbar">
       <Image src={logo} className={"w-[120px] h-[120px] mx-auto"} />
 
       <ul className="mt-10">

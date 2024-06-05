@@ -4,10 +4,12 @@ import Image from "./Image";
 import { GrView } from "react-icons/gr";
 import { MdModeEditOutline } from "react-icons/md";
 import { PiTrashSimpleFill } from "react-icons/pi";
+import { useNavigate } from "react-router-dom";
 /**
  * This Component for displaing student info in list view
  */
 const StudentList = ({ studentInfo }) => {
+  const navigate = useNavigate();
   return (
     <Flex
       className={
@@ -35,7 +37,10 @@ const StudentList = ({ studentInfo }) => {
       </Flex>
 
       <Flex className={"items-center justify-end gap-5"}>
-        <GrView className=" text-2xl text-black cursor-pointer group-hover:text-white" />
+        <GrView
+          onClick={() => navigate(`/student/${studentInfo.diplomaBoardRoll}`)}
+          className=" text-2xl text-black cursor-pointer group-hover:text-white"
+        />
         <MdModeEditOutline className=" text-2xl text-black cursor-pointer group-hover:text-white" />
         <PiTrashSimpleFill className=" text-2xl text-black cursor-pointer group-hover:text-white" />
       </Flex>

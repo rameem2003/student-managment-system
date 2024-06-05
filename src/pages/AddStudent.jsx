@@ -57,16 +57,29 @@ const AddStudent = () => {
         })
         .then((res) => {
           console.log(res);
-          toast.success("Student Added Successful", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
+          if (res.data.msg == "Student Already Available") {
+            toast.warning("Student Already Exist", {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            });
+          } else {
+            toast.success("Student Added Successful", {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            });
+          }
         })
         .finally(() => {
           setTimeout(() => {
@@ -145,12 +158,13 @@ const AddStudent = () => {
 
             {genderDropDown && (
               <div className="bg-white w-full z-50  top-[80px] left-0 rounded-lg absolute">
-                {genderData.map((data) => (
+                {genderData.map((data, i) => (
                   <p
+                    key={i}
                     onClick={() => {
                       setGender(data);
                     }}
-                    className=" capitalize cursor-pointer py-2 px-3 rounded-md font-sans font-semibold text-lg mb-3 hover:bg-primaryBG hover:text-white"
+                    className=" capitalize cursor-pointer py-2 px-3 rounded-md font-sans font-semibold text-lg hover:bg-primaryBG hover:text-white"
                   >
                     {data}
                   </p>
