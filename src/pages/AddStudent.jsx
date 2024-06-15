@@ -4,8 +4,8 @@ import Flex from "../components/common/Flex";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { genderData } from "../constant/genderdata";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddStudent = () => {
   const navigate = useNavigate("");

@@ -3,6 +3,7 @@ import Flex from "../components/common/Flex";
 import Image from "../components/common/Image";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import DeletePopup from "../components/common/DeletePopup";
 
 const ViewStudent = () => {
   const { roll } = useParams();

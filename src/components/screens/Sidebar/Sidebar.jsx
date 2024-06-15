@@ -33,7 +33,7 @@ const Sidebar = () => {
             Add New
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink
             className={({ isActive }) =>
               ` ${
@@ -44,7 +44,7 @@ const Sidebar = () => {
           >
             Search Student
           </NavLink>
-        </li>
+        </li> */}
       </ul>
     </section>
   );
