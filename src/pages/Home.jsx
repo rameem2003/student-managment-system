@@ -1,24 +1,42 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import Flex from "../components/common/Flex";
 import StudentListView from "../components/common/StudentListView";
-import { useSelector } from "react-redux";
-import { MdOutlineWindow } from "react-icons/md";
-import { FaSearch, FaThList } from "react-icons/fa";
 import Loading from "../components/common/Loading";
 import BasicInfo from "../components/screens/Home/BasicInfo";
+import { useDispatch, useSelector } from "react-redux";
+import { studentReducer } from "../redux/features/allstudents";
+import { MdOutlineWindow } from "react-icons/md";
+import { FaSearch, FaThList } from "react-icons/fa";
 
 const Home = () => {
+  const disatch = useDispatch();
   let data = useSelector((state) => state.allStudents.students); // get all students
   const [search, setSearch] = useState([]); // state for filtering student by many criteria by default it will store all information
 
+  /**
+   * Store all students info into the main redux store
+   * for global
+   */
+
   useEffect(() => {
-    setSearch(data);
-  }, [data]);
+    const fetchStudents = () => {
+      axios
+        .get(import.meta.env.VITE_API_URL)
+        .then((data) => disatch(studentReducer(data.data)));
+    };
+
+    fetchStudents();
+  }, []);
 
   /**
    * function for search input (search by roll number)
    * It will happen when user type any number
    */
+
+  useEffect(() => {
+    setSearch(data);
+  }, [data]);
   const handleSearch = (e) => {
     if (e.target.value == "") {
       setSearch(data);

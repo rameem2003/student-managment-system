@@ -2,12 +2,14 @@ import React from "react";
 import Flex from "./Flex";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const DeletePopup = ({ student, setPopup, popup }) => {
+  const navigate = useNavigate();
   const deleteStudent = async () => {
     try {
       await axios
-        .delete(import.meta.env.VITE_API_URL + "/" + student.diplomaBoardRol)
+        .delete(import.meta.env.VITE_API_URL + "/" + student.diplomaBoardRoll)
         .then((res) => {
           toast.success(`${res.data.msg}`, {
             position: "top-right",
@@ -20,7 +22,10 @@ const DeletePopup = ({ student, setPopup, popup }) => {
             theme: "colored",
           });
 
-          setPopup(false);
+          setTimeout(() => {
+            navigate("/");
+            setPopup(false);
+          }, 2000);
         });
     } catch (error) {
       // console.log(error.response.data.msg);

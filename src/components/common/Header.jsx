@@ -13,13 +13,12 @@ const Header = () => {
    * for global
    */
 
+  const fetchStudents = () => {
+    axios
+      .get(import.meta.env.VITE_API_URL)
+      .then((data) => disatch(studentReducer(data.data)));
+  };
   useEffect(() => {
-    const fetchStudents = () => {
-      axios
-        .get(import.meta.env.VITE_API_URL)
-        .then((data) => disatch(studentReducer(data.data)));
-    };
-
     fetchStudents();
   }, []);
 

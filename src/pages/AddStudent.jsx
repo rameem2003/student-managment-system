@@ -3,14 +3,17 @@ import Input from "../components/common/Input";
 import Flex from "../components/common/Flex";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
 import { genderData } from "../constant/genderdata";
+import { bloodGroup } from "../constant/bloodgroup";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const AddStudent = () => {
   const navigate = useNavigate("");
   const genderRef = useRef();
+  const bloodRef = useRef();
   const [genderDropDown, setGenderDropDown] = useState(false);
+  const [bloodDropDown, setBloodDropDown] = useState(false);
   const [nameB, setNameB] = useState("");
   const [nameE, setNameE] = useState("");
   const [gender, setGender] = useState("");
@@ -27,7 +30,7 @@ const AddStudent = () => {
   const [sscGroup, setSSCGroup] = useState("");
   const [sscGPA, setSSCGPA] = useState("");
   const handleSubmit = async (e) => {
-    e.preventDefault(0);
+    e.preventDefault();
 
     let newStudent = {
       studentNameBangla: nameB,
@@ -108,6 +111,9 @@ const AddStudent = () => {
       genderRef.current.contains(e.target)
         ? setGenderDropDown(true)
         : setGenderDropDown(false);
+      bloodRef.current.contains(e.target)
+        ? setBloodDropDown(true)
+        : setBloodDropDown(false);
     });
   }, []);
   return (
@@ -131,12 +137,32 @@ const AddStudent = () => {
             htmlFor={"name_in_english"}
             label={"Name in English"}
           />
-          <Input
-            onChange={(e) => setBlood(e.target.value)}
-            className={"w-1/3"}
-            htmlFor={"blodd"}
-            label={"Blood Group"}
-          />
+          <div ref={bloodRef} className="w-1/3 relative">
+            <Input
+              value={blood}
+              // onChange={(e) => setBlood(e.target.value)}
+              className={"w-full"}
+              htmlFor={"blodd"}
+              label={"Blood Group"}
+              autoComplete={"off"}
+            />
+
+            {bloodDropDown && (
+              <div className="bg-white w-full z-50  top-[80px] left-0 rounded-lg absolute">
+                {bloodGroup.map((data, i) => (
+                  <p
+                    key={i}
+                    onClick={() => {
+                      setBlood(data);
+                    }}
+                    className=" capitalize cursor-pointer py-2 px-3 rounded-md font-sans font-semibold text-lg hover:bg-primaryBG hover:text-white"
+                  >
+                    {data}
+                  </p>
+                ))}
+              </div>
+            )}
+          </div>
         </Flex>
 
         <Flex className={"gap-3 mb-4"}>
@@ -154,6 +180,7 @@ const AddStudent = () => {
               className={"w-full"}
               htmlFor={"gender"}
               label={"Gender"}
+              autoComplete={"off"}
             />
 
             {genderDropDown && (

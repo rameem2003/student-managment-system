@@ -4,9 +4,12 @@ const Input = ({
   htmlFor,
   label,
   onChange,
+  onInput,
   className,
   value,
   defaultValue,
+  autoComplete,
+  placeholder,
 }) => {
   return (
     <div className={` relative mt-5 ${className}`}>
@@ -17,8 +20,11 @@ const Input = ({
           type="text"
           id={htmlFor}
           onChange={(e) => onChange(e)}
+          onInput={(e) => onInput(e)}
           className=" block px-2.5 pb-2.5 pt-4 w-full font-sans font-normal text-base rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-          placeholder=" "
+          placeholder={placeholder ? placeholder : " "}
+          autoComplete={autoComplete ? autoComplete : "on"}
+          required
         />
         <label
           htmlFor={htmlFor}
