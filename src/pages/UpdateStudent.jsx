@@ -7,25 +7,10 @@ import { genderData } from "./../constant/genderdata";
 import { bloodGroup } from "../constant/bloodgroup";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Loading from "../components/common/Loading";
 
 const UpdateStudent = () => {
   const location = useLocation();
-  const { roll } = useParams(); // get the roll number from searchbar
   const [student, setStudent] = useState(location.state);
-  /**
-   * Get the student info from the parameter of browser
-   */
-  // const fetchStudent = async () => {
-  //   await axios.get(import.meta.env.VITE_API_URL + "/" + roll).then((data) => {
-  //     setStudent(data.data);
-  //     setLoading(false);
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   fetchStudent();
-  // }, []);
 
   // navigation instance
   const navigate = useNavigate();
