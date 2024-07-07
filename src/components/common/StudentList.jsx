@@ -55,7 +55,7 @@ const StudentList = ({ studentInfo }) => {
             className=" text-2xl text-black cursor-pointer group-hover:text-white"
           />
           <MdModeEditOutline
-            onClick={() => navigate(`/update/${studentInfo.diplomaBoardRoll}`)}
+            onClick={() => navigate(`/update`, { state: studentInfo })}
             className=" text-2xl text-black cursor-pointer group-hover:text-white"
           />
           <PiTrashSimpleFill
